@@ -1,5 +1,5 @@
 # Hackenza Project
-This is a journal and conferences management website created with the help of flask in python. The website starts with user and admin login page wherein the user can login and make journal and conference entries , the admin login on the other hand can either edit or delete these entries , it can also print these journals and conferences in PDF form. The database structure is given below.
+This website, developed using Flask in Python, serves as a platform for managing journals and conferences. Upon accessing the site, users encounter separate login pages for both regular users and administrators. Once logged in, users can create entries for journals and conferences. Meanwhile, administrators have the additional privileges of editing or deleting these entries. Moreover, the admin account enables the printing of journals and conferences in PDF format. The database structure required for this functionality has been meticulously defined.
 
 
 # Database Structure
