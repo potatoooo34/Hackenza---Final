@@ -72,7 +72,7 @@ with app.app_context():
     db.create_all()
 
 
-# db.create_all()
+
 
 @app.route('/')
 def login_page():
@@ -99,18 +99,7 @@ def login():
 
             return redirect(url_for('unauthorized'))
 
-        # print(form.email.data)
-        # print(form.password.data)
-
-        ##check in the data base##
-
-        # if passed then the next line
-        # if admin then pass then
-        # return redirect(url_for('admin_page'))
-        # else
-
-        # else add the user in the database----------ye alag se function hoga...
-        # else show unauthorised access
+        
     return render_template('login.html', form=form)
 
 
@@ -121,9 +110,7 @@ def home_page():
 
 @app.route('/admin')
 def admin_page():
-    # taking in all the journal entries
-
-    ##
+   
 
     return render_template("AdminPage.html")
 
@@ -142,10 +129,7 @@ def entries():
             print(journal.j_con_name)
     else:
         print("NOTHING HERE")
-    #####
-
-    # taking in all the conference entries
-
+   
     conferences = CONFERENCE.query.all()
     if conferences:
         for conference in conferences:
@@ -202,10 +186,10 @@ def journal_page():
             j_con_loc=conference_location
         )
 
-        # Add the new_journal to the database session
+        
         db.session.add(new_journal)
 
-        # Commit the changes to persist them in the database
+        
         db.session.commit()
         return redirect(url_for('home_page'))
     return render_template("JournalPage.html", journal=None, IsEdit=False)
@@ -270,7 +254,7 @@ def show_conf_entry(conf_url):
 @app.route('/edit_journal/<string:journal_doi>', methods=['GET', 'POST'])
 def edit_journal(journal_doi):
     journal = JOURNALS.query.get(journal_doi)
-    # return "<h1>EDIT ME AAGYE</h1>"
+   
     if request.method == 'POST':
         journal.j_dop = request.form['publication-date']
         journal.j_nat_inat = request.form['national-international']
@@ -294,7 +278,7 @@ def edit_journal(journal_doi):
 @app.route('/edit_conference/<string:conf_url>', methods=['GET', 'POST'])
 def edit_conference(conf_url):
     conference = CONFERENCE.query.get(conf_url)
-    # return "<h1>EDIT ME AAGYE</h1>"
+    
     if request.method == 'POST':
         conference.c_email = "maillll"
         conference.c_date = request.form['conference-date']
@@ -311,7 +295,7 @@ def edit_conference(conf_url):
         conference.c_page_n = request.form['pages']
         conference.c_publisher = request.form['publisher']
 
-        # Commit the changes to the database
+        
         db.session.commit()
         return redirect(url_for('admin_pub_page'))
 
