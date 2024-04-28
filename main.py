@@ -169,7 +169,7 @@ def journal_page():
         authors = request.form['authors']
 
         new_journal = JOURNALS(
-            j_email="maillll",
+            j_email="user",
             j_dop=publication_date,
             j_nat_inat=national_international,
             j_ranking=ranking,
@@ -269,7 +269,7 @@ def edit_journal(journal_doi):
         journal.j_publisher = request.form['publisher']
         journal.j_authors = request.form['authors']
 
-        # Commit the changes to the database
+       
         db.session.commit()
         return redirect(url_for('admin_pub_page'))
     return render_template("JournalPage.html", journal=journal, IsEdit=True)
